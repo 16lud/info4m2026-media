@@ -20,6 +20,10 @@
         <input type="button" value="Calcular"
                (click)="calcularMediaParcial(+b1.value,
                 +b2.value, +b3.value, +b4.value)">
+                
+                <input type="button"
+       value="Calcular Avaliação Final"
+       (click)="calcularAvaliacaoFinal()">
     </div>
 </form>
 <!-- Exibe se tiver média parcial (não for undefined)-->
@@ -27,4 +31,9 @@
     <div>
         <p>Média parcial = {{mediaParcial}}</p>
     </div>
+}
+@if (avaliacaoFinal) {
+  <div>
+    <p>Nota necessária na final = {{avaliacaoFinal}}</p>
+  </div>
 }
