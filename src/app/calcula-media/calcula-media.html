@@ -36,13 +36,39 @@
         <div class="results mt-4 d-flex flex-column flex-sm-row gap-3 justify-content-center align-items-stretch">
             <div *ngIf="mediaParcial !== undefined" class="card result-card glass p-3 text-center">
                 <h2 class="result-title">Média Parcial</h2>
-                <p class="result-value">{{ mediaParcial | number:'1.2-2' }}</p>
+                                <p class="result-value">{{ mediaParcial | number:'1.2-2' }}</p>
+                                <!-- Status após média parcial -->
+                                <p class="mt-2 mb-0 status-msg" [ngClass]="{'aprovado': isAprovado(), 'reprovado': !isAprovado()}">
+                                    <span *ngIf="isAprovado()">✅ Aprovado</span>
+                                    <span *ngIf="!isAprovado()">❌ Reprovado</span>
+                                </p>
             </div>
 
             <div *ngIf="avaliacaoFinal !== undefined" class="card result-card glass p-3 text-center">
                 <h2 class="result-title">Nota necessária na Final</h2>
                 <p class="result-value">{{ avaliacaoFinal | number:'1.2-2' }}</p>
             </div>
+
+                        <!-- Input para nota da prova final (aparece se reprovado) -->
+                        <div *ngIf="showProvaFinal" class="card result-card glass p-3 text-center">
+                            <h2 class="result-title">Prova Final</h2>
+                            <div class="d-flex flex-column gap-2 align-items-center">
+                                <input id="provaFinal" type="number" #provaFinal class="form-control input-lg text-center" placeholder="Nota da Prova Final">
+                                <div class="w-100 d-flex justify-content-center mt-2">
+                                    <button type="button" class="btn btn-primary btn-sm rounded-pill" (click)="calcularMediaFinal(+provaFinal.value)">Calcular Média Final</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Resultado da média final e status -->
+                        <div *ngIf="mediaFinal !== undefined" class="card result-card glass p-3 text-center">
+                            <h2 class="result-title">Média Final</h2>
+                            <p class="result-value">{{ mediaFinal | number:'1.2-2' }}</p>
+                            <p class="mt-2 mb-0 status-msg" [ngClass]="{'aprovado': isFinalAprovado(), 'reprovado': !isFinalAprovado()}">
+                                <span *ngIf="isFinalAprovado()">✅ Aprovado na Final</span>
+                                <span *ngIf="!isFinalAprovado()">❌ Reprovado</span>
+                            </p>
+                        </div>
         </div>
     </div>
 </div>
