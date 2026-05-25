@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
-import { NgIf } from '@angular/common';
-import { DecimalPipe } from '@angular/common';
+import { CommonModule, DecimalPipe } from '@angular/common';
 
 @Component({
   selector: 'app-calcula-media',
   standalone: true,
-  imports: [NgIf],
-  providers: [DecimalPipe],
+  imports: [CommonModule, DecimalPipe],
   templateUrl: './calcula-media.html',
   styleUrls: ['./calcula-media.scss'],
 })
