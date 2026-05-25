@@ -1,0 +1,119 @@
+/* Palette
+	 Azul escuro: #0F172A
+	 Azul médio : #2563EB
+	 Branco     : #FFFFFF
+	 Cinza claro: #CBD5E1
+	 Cinza escuro: #1E293B
+*/
+
+:host {
+	font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+.calc-page {
+	min-height: 100vh;
+	width: 100%;
+	background: linear-gradient(180deg, #0F172A 0%, #1E293B 60%, #111827 100%);
+	animation: bgFade 800ms ease both;
+}
+
+.calc-container {
+	width: min(960px, 92%);
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
+	padding: 3rem 1rem;
+}
+
+.brand .title {
+	color: #FFFFFF;
+	font-weight: 700;
+	letter-spacing: -0.02em;
+	margin: 0;
+	font-size: 1.8rem;
+	text-align: center;
+}
+.brand .subtitle {
+	color: #CBD5E1;
+	margin: 0.25rem 0 0;
+	font-size: 0.95rem;
+}
+
+.card.glass {
+	background: linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+	border: 1px solid rgba(255,255,255,0.06);
+	backdrop-filter: blur(8px) saturate(120%);
+	-webkit-backdrop-filter: blur(8px);
+	box-shadow: 0 6px 20px rgba(2,6,23,0.6);
+	border-radius: 14px;
+}
+
+.input-lg {
+	padding: 0.75rem 0.5rem;
+	font-size: 1.05rem;
+	border-radius: 10px;
+	border: 1px solid rgba(255,255,255,0.08);
+	background: rgba(255,255,255,0.02);
+	color: #FFFFFF;
+}
+.input-lg:focus {
+	outline: none;
+	box-shadow: 0 0 0 4px rgba(37,99,235,0.12);
+	border-color: #2563EB;
+}
+
+.btn-calc {
+	min-width: 180px;
+	transition: transform .22s cubic-bezier(.2,.9,.24,1), box-shadow .22s;
+	box-shadow: 0 6px 18px rgba(2,6,23,0.45);
+}
+.btn-calc:hover {
+	transform: translateY(-3px) scale(1.01);
+	box-shadow: 0 10px 30px rgba(37,99,235,0.18);
+}
+.btn-outline-light {
+	color: #E6EEF8;
+	border-color: rgba(230,238,248,0.12);
+	background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+}
+
+.results {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	gap: 1rem;
+}
+.result-card {
+	min-width: 220px;
+	flex: 1 1 220px;
+	color: #FFFFFF;
+	border-radius: 12px;
+}
+.result-title {
+	margin: 0;
+	color: #FFFFFF;
+	font-size: 0.95rem;
+	font-weight: 600;
+}
+.result-value {
+	margin: 0.5rem 0 0;
+	color: #CBD5E1;
+	font-size: 1.45rem;
+	font-weight: 700;
+}
+
+@keyframes bgFade {
+	from { opacity: 0; transform: translateY(6px); }
+	to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsiveness tweaks */
+@media (max-width: 576px) {
+	.brand .title { font-size: 1.4rem; }
+	.btn-calc { min-width: 140px; }
+	.input-lg { font-size: 1rem; }
+	.calc-container { padding: 2rem 0.75rem; }
+}
+

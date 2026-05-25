@@ -1,39 +1,48 @@
-<h1>Calcula a média de uma disciplina</h1>
-<form>
-    <div>
-        <label for="b1">Bim 1</label>
-        <input id="b1" type="number" #b1>
+<div class="calc-page d-flex align-items-center justify-content-center">
+    <div class="calc-container">
+        <div class="brand text-center mb-4">
+            <h1 class="title">Calculadora de Média</h1>
+            <p class="subtitle">Estatística rápida e profissional</p>
+        </div>
+
+        <form class="card glass p-4" (submit)="$event.preventDefault()">
+            <div class="row g-3 mb-3">
+                <div class="col-6 col-sm-3">
+                    <label for="b1" class="form-label">Bim 1</label>
+                    <input id="b1" type="number" #b1 class="form-control input-lg text-center">
+                </div>
+                <div class="col-6 col-sm-3">
+                    <label for="b2" class="form-label">Bim 2</label>
+                    <input id="b2" type="number" #b2 class="form-control input-lg text-center">
+                </div>
+                <div class="col-6 col-sm-3">
+                    <label for="b3" class="form-label">Bim 3</label>
+                    <input id="b3" type="number" #b3 class="form-control input-lg text-center">
+                </div>
+                <div class="col-6 col-sm-3">
+                    <label for="b4" class="form-label">Bim 4</label>
+                    <input id="b4" type="number" #b4 class="form-control input-lg text-center">
+                </div>
+            </div>
+
+            <div class="d-flex gap-3 justify-content-center mb-3">
+                <button type="button" class="btn btn-primary btn-lg rounded-pill btn-calc"
+                    (click)="calcularMediaParcial(+b1.value, +b2.value, +b3.value, +b4.value)">Calcular</button>
+
+                <button type="button" class="btn btn-outline-light btn-lg rounded-pill btn-calc" (click)="calcularAvaliacaoFinal()">Calcular Avaliação Final</button>
+            </div>
+        </form>
+
+        <div class="results mt-4 d-flex flex-column flex-sm-row gap-3 justify-content-center align-items-stretch">
+            <div *ngIf="mediaParcial !== undefined" class="card result-card glass p-3 text-center">
+                <h2 class="result-title">Média Parcial</h2>
+                <p class="result-value">{{ mediaParcial | number:'1.2-2' }}</p>
+            </div>
+
+            <div *ngIf="avaliacaoFinal !== undefined" class="card result-card glass p-3 text-center">
+                <h2 class="result-title">Nota necessária na Final</h2>
+                <p class="result-value">{{ avaliacaoFinal | number:'1.2-2' }}</p>
+            </div>
+        </div>
     </div>
-    <div>
-        <label for="b2">Bim 2</label>
-        <input id="b2" type="number" #b2>
-    </div>
-    <div>
-        <label for="b3">Bim 3</label>
-        <input id="b3" type="number" #b3>
-    </div>
-    <div>
-        <label for="b4">Bim 4</label>
-        <input id="b4" type="number" #b4>
-    </div>
-    <div>
-        <input type="button" value="Calcular"
-               (click)="calcularMediaParcial(+b1.value,
-                +b2.value, +b3.value, +b4.value)">
-                
-                <input type="button"
-       value="Calcular Avaliação Final"
-       (click)="calcularAvaliacaoFinal()">
-    </div>
-</form>
-<!-- Exibe se tiver média parcial (não for undefined)-->
-@if (mediaParcial) {
-    <div>
-        <p>Média parcial = {{mediaParcial}}</p>
-    </div>
-}
-@if (avaliacaoFinal) {
-  <div>
-    <p>Nota necessária na final = {{avaliacaoFinal}}</p>
-  </div>
-}
+</div>
