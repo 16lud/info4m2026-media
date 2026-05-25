@@ -41,6 +41,12 @@
 	font-size: 0.95rem;
 }
 
+/* Garantir que todos os rótulos de inputs (Bim 1..4) fiquem brancos */
+.calc-container .form-label {
+	color: #FFFFFF !important;
+	font-weight: 600;
+}
+
 .card.glass {
 	background: linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
 	border: 1px solid rgba(255,255,255,0.06);
