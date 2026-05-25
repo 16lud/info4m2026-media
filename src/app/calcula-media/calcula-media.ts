@@ -11,10 +11,10 @@ import { CommonModule, DecimalPipe } from '@angular/common';
 
 export class CalculaMedia {
 
-  protected mediaParcial: number | undefined
-  protected avaliacaoFinal: number | undefined
-  protected showProvaFinal: boolean = false
-  protected mediaFinal: number | undefined
+  public mediaParcial: number | undefined
+  public avaliacaoFinal: number | undefined
+  public showProvaFinal: boolean = false
+  public mediaFinal: number | undefined
 
   constructor() {
     this.mediaParcial = undefined
@@ -59,7 +59,7 @@ export class CalculaMedia {
   }
 
   // Exibe o input da prova final quando reprovado
-  private checkShowProvaFinal() {
+  public checkShowProvaFinal() {
     if (this.mediaParcial !== undefined && this.mediaParcial < 60) {
       this.showProvaFinal = true
     } else {
