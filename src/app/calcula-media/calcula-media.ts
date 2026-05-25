@@ -40,6 +40,8 @@ export class CalculaMedia {
     // Reset de estados da prova final quando recalculamos
     this.mediaFinal = undefined
     this.showProvaFinal = false
+    // Verifica se deve mostrar o campo da prova final
+    this.checkShowProvaFinal()
   }
 
   calcularAvaliacaoFinal() {

@@ -110,6 +110,12 @@
 	font-weight: 700;
 }
 
+.status-msg { font-weight: 700; font-size: 0.98rem; }
+.status-msg.aprovado { color: #22c55e; } /* verde */
+.status-msg.reprovado { color: #ef4444; } /* vermelho */
+
+.card.result-card .form-control[placeholder] { text-align: center; }
+
 @keyframes bgFade {
 	from { opacity: 0; transform: translateY(6px); }
 	to { opacity: 1; transform: translateY(0); }
