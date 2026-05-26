@@ -40,7 +40,7 @@
                                 <!-- Status após média parcial -->
                                 <p class="mt-2 mb-0 status-msg" [ngClass]="{'aprovado': isAprovado(), 'reprovado': !isAprovado()}">
                                     <span *ngIf="isAprovado()">✅ Aprovado</span>
-                                    <span *ngIf="!isAprovado()">❌ Reprovado</span>
+                                    <span *ngIf="!isAprovado()">❌ prova final </span>
                                 </p>
             </div>
 
@@ -66,7 +66,7 @@
                             <p class="result-value">{{ mediaFinal | number:'1.2-2' }}</p>
                             <p class="mt-2 mb-0 status-msg" [ngClass]="{'aprovado': isFinalAprovado(), 'reprovado': !isFinalAprovado()}">
                                 <span *ngIf="isFinalAprovado()">✅ Aprovado na Final</span>
-                                <span *ngIf="!isFinalAprovado()">❌ Reprovado</span>
+                                <span *ngIf="!isFinalAprovado()">❌ Reprovado na Final</span>
                             </p>
                         </div>
         </div>
